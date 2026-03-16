@@ -24,7 +24,7 @@ jobs:
       matrix:
         include:
           - tasks: "check"
-          - tasks: "jacocoTestReport coveralls"
+          - tasks: "jacocoTestReport"
 
     steps:
     - uses: actions/checkout@v4
