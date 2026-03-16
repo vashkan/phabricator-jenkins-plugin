@@ -1,7 +1,7 @@
 plugins {
   id 'java'
   id 'checkstyle'
-  id 'org.jenkins-ci.jpi' version '0.55.0'
+  id 'org.jenkins-ci.jpi' version '0.56.3'
   id 'jacoco'
 }
 
@@ -48,7 +48,7 @@ jenkinsPlugin {
 }
 
 dependencies {
-  implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+  implementation 'org.apache.httpcomponents:httpclient:4.5.14'
 
   jenkinsPlugins 'io.jenkins.plugins:checks-api:1.8.1@jar'
   jenkinsPlugins 'io.jenkins.plugins:plugin-util-api:2.20.0@jar'
@@ -57,13 +57,13 @@ dependencies {
   compileOnly 'org.jenkins-ci.plugins:credentials:2.6.2'
   optionalJenkinsPlugins 'org.jenkins-ci.plugins:coverage:2.3036.v90d485b_810c6'
 
-  testImplementation('org.junit.jupiter:junit-jupiter:6.0.1')
-  testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:6.0.1')
-  testRuntimeOnly('org.junit.platform:junit-platform-launcher:6.0.1')
+  testImplementation('org.junit.jupiter:junit-jupiter:6.0.3')
+  testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:6.0.3')
+  testRuntimeOnly('org.junit.platform:junit-platform-launcher:6.0.3')
 
-  testImplementation 'org.apache.httpcomponents:httpclient:4.5.13:tests'
+  testImplementation 'org.apache.httpcomponents:httpclient:4.5.14:tests'
   testImplementation 'net.sf.trove4j:trove4j:3.0.3'
-  testImplementation('org.mockito:mockito-core:1.10.19') {
+  testImplementation('org.mockito:mockito-core:5.23.0') {
     exclude module: 'hamcrest-core'
   }
   testImplementation 'org.powermock:powermock-api-mockito2:2.0.9'
@@ -79,8 +79,8 @@ dependencies {
 configurations.all {
   if (it.name.toLowerCase().contains("test")) {
     resolutionStrategy {
-      force 'org.apache.httpcomponents:httpclient:4.5.13:tests'
-      force 'xml-apis:xml-apis:1.4.01'
+      force 'org.apache.httpcomponents:httpclient:4.5.14:tests'
+      force 'xml-apis:xml-apis:2.0.2'
     }
   }
 }
